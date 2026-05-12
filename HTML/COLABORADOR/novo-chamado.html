@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novo Chamado - Funada Help Desk</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../CSS/COLABORADOR/novo-chamado.css" />
+</head>
+<body>
+    
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+            <img src="../../Images/logoFunada.png" alt="Funada" />
+        </div>
+        <nav class="sidebar-nav">
+            <a href="inicio.html" class="nav-item">
+                <span class="nav-icon">🏠</span>
+                <span>Início</span>
+            </a>
+            <a href="#" class="nav-item active">
+                <span class="nav-icon">➕</span>
+                <span>Novo Chamado</span>
+            </a>
+            <a href="meus-chamados.html" class="nav-item">
+                <span class="nav-icon">📋</span>
+                <span>Meus Chamados</span>
+            </a>
+            <a href="notificacoes.html" class="nav-item">
+                <span class="nav-icon">🔔</span>
+                <span>Notificações</span>
+                <span class="badge">3</span>
+            </a>
+        </nav>
+        <div class="sidebar-user">
+            <div class="user-avatar" id="sidebar-avatar">??</div>
+            <div class="user-info">
+                <span class="user-name" id="sidebar-nome">Usuário</span>
+                <span class="user-role" id="sidebar-role">Colaborador</span>
+            </div>
+            <a href="../../login.html" class="btn-logout" title="Sair">⏻</a>
+        </div>
+    </aside>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="main">
+
+        <header class="page-header">
+            <div class="header-left">
+                <h1 class="page-title">Novo Chamado</h1>
+                <p class="page-subtitle">Preencha os dados abaixo para abrir sua solicitação</p>
+            </div>
+            <div class="header-right">
+                <div class="header-date" id="header-date"></div>
+            </div>
+        </header>
+
+        <!-- FORMULÁRIO -->
+        <div class="form-wrapper">
+            <form id="form-chamado" novalidate>
+
+                <!-- IDENTIFICAÇÃO -->
+                <section class="form-section">
+                    <div class="section-label">
+                        <span class="section-number">01</span>
+                        <span class="section-title">Identificação</span>
+                    </div>
+                    <div class="form-grid two-col">
+                        <div class="field">
+                            <label for="solicitante">Solicitante</label>
+                            <input type="text" id="solicitante" placeholder="Nome do Colaborador" readonly />
+                        </div>
+
+                        <div class="field">
+                            <label for="setor">Setor</label>
+                            <input type="text" id="setor" placeholder="Setor" readonly />
+                        </div>
+
+                        <div class="field">
+                            <label for="ip-maquina">
+                                IP da Máquina
+                                <span id="ip-status"></span>
+                            </label>
+                            <div class="input-with-icon">
+                                <input type="text" id="ip-maquina" placeholder="IP da Máquina" readonly />
+                                <span class="input-status" id="ip-status">⏳</span>
+                            </div>
+                        </div>
+                        
+                        <div class="field">
+                            <label for="nome-maquina">
+                                Nome da Máquina
+                                <span class="tag-auto">automático</span>
+                            </label>
+                            <input type="text" id="nome-maquina" name="nome_maquina" readonly class="readonly"
+                            placeholder="Detectando..." />
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- DIVIDER -->
+                <div class="section-divider"></div>
+
+                <!-- CLASSIFICAÇÃO -->
+                <section class="form-section">
+                    <div class="section-label">
+                        <span class="section-number">02</span>
+                        <span class="section-title">Classificação</span>
+                    </div>
+                    <div class="form-grid two-col">
+
+                        <div class="field">
+                            <label for="categoria">
+                                Categoria
+                                <span class="required">*</span>
+                            </label>
+                            <div class="select-wrapper">
+                                <select id="categoria" name="categoria" required>
+                                    <option value="">Selecione a categoria</option>
+                                    <option value="1">🖥️ Hardware</option>
+                                    <option value="2">💻 Software</option>
+                                    <option value="3">🌐 Rede / Internet</option>
+                                    <option value="4">🔑 Acesso / Senha</option>
+                                    <option value="5">🖨️ Impressora</option>
+                                    <option value="6">📧 E-mail</option>
+                                    <option value="7">📞 Telefonia</option>
+                                    <option value="8">📦 Outros</option>
+                                </select>
+                                <span class="select-arrow">▾</span>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label for="prioridade">Prioridade
+                                <span class="required">*</span>
+                            </label>
+                            <div class="priority-options" id="priority-options">
+                                <label class="priority-card" data-value="baixa">
+                                    <input type="radio" name="prioridade" value="baixa" />
+                                    <span class="priority-dot baixa"></span>
+                                    <span>Baixa</span>
+                                </label>
+                                <label class="priority-card" data-value="media">
+                                    <input type="radio" name="prioridade" value="media" checked />
+                                    <span class="priority-dot media"></span>
+                                    <span>Média</span>
+                                </label>
+                                <label class="priority-card" data-value="alta">
+                                    <input type="radio" name="prioridade" value="alta" />
+                                    <span class="priority-dot alta"></span>
+                                    <span>Alta</span>
+                                </label>
+                                <label class="priority-card" data-value="critica">
+                                    <input type="radio" name="prioridade" value="critica">
+                                    <span class="priority-dot critica"></span>
+                                    <span>Crítica</span>  
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- DIVIDER -->
+                <div class="section-divider"></div>
+                
+                <!-- DETALHES -->
+                <section class="form-section">
+                    <div class="section-label">
+                        <span class="section-number">03</span>
+                        <span class="section-title">Detalhes do Problema</span>
+                    </div>
+                    <div class="form-grid one-col">
+
+                        <div class="field">
+                            <label for="titulo">
+                                Titulo do Chamado
+                                <span class="required">*</span>
+                            </label>
+                            <input type="text" id="titulo" name="titulo" placeholder="Descreva brevemente o problema..."
+                            maxlength="200" required />
+                            <span class="char-count"><span id="titulo-count">0</span>200</span>
+                        </div>
+
+                        <div class="field">
+                            <label for="descricao">
+                                Descrição Detalhada
+                                <span class="required">*</span>
+                            </label>
+                            <textarea id="descricao" name="descricao" rows="6" placeholder="Explique com o máximo de Detalhes possível:&#10;• O que aconteceu?&#10;• Quando começou?" required></textarea>
+                            <span class="char-count"><span id="desc-count">0</span> caracteres </span>
+                        </div>
+
+                    </div>
+                </section>
+                
+                <!-- DIVIDER -->
+                <div class="section-divider"></div>
+
+                <!-- ANEXOS -->
+                <section class="form-section">
+                    <div class="section-label">
+                        <span class="section-number">04</span>
+                        <span class="section-title">Anexos <span class="opcional">(Opcional)</span></span>
+                    </div>
+
+                    <div class="upload-area" id="upload-area">
+                        <div class="upload-icon">📎</div>
+                        <p class="upload-text">Arraste arquivos aqui ou <span class="upload-link" clique para selecionar></span></p>
+                        <p class="upload-hint">PNG, JPG, PDF, DOCX - Máximo 10MB por arquivo</p>
+                        <input type="file" id="file-input" multiple accept=".png,.jpg,.jpeg,.pdf,.docx,.xlsx,.txt" hidden />
+                    </div>
+                    
+                    <div class="file-list" id="file-list"></div>
+
+                </section> 
+
+                <!-- AÇÕES -->
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" onclick="history.back()">Cancelar</button>
+                    <button type="submit" class="btn-primary" id="btn-submit">
+                        <span class="btn-text">Abrir Chamado</span>
+                        <span class="btn-icon">→</span>
+                    </button>
+                </div> 
+
+            </form>
+        </div>
+
+    </main>
+
+    <!-- MODAL DE SUCESSO -->
+    <div class="modal-overlay" id="modal-sucesso" hidden>
+        <div class="modal">
+            <div class="modal-icon">✅</div>
+            <h2 class="modal-title">Chamado Aberto!</h2>
+            <p class="modal-text">Seu chamado foi registrado com sucesso.<br>Em breve entraremos em contato.</p>
+            <div class="modal-info">
+                <span>Protocolo</span>
+                <strong id="modal-protocolo">#000000</strong>
+            </div>
+            <button class="btn-primary" onclick="window.location.href='meus-chamados.html'">Ver meus Chamados →</button>
+        </div>
+    </div>
+
+    <script src="../../JS/api.js"></script>
+    <script src="../../JS/sidebar.js"></script>
+    <script src="../../JS/COLABORADOR/novo-chamado.js"></script>
+</body>
+</html>

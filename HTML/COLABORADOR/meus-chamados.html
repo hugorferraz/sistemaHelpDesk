@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Chamados - Funada Help Desk</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../CSS/COLABORADOR/meus-chamados.css" />
+</head>
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+            <img src="../../Images/logoFunada.png" alt="Funada" />
+        </div>
+        <nav class="sidebar-nav">
+            <a href="inicio.html" class="nav-item">
+                <span class-="nav-icon">🏠</span>
+                <span>Início</span>
+            </a>
+            <a href="novo-chamado.html" class="nav-item">
+                <span class="nav-icon">➕</span>
+                <span>Novo Chamado</span>
+            </a>
+            <a href="meus-chamados.html" class="nav-item active">
+                <span class="nav-icon">📋</span>
+                <span>Meus Chamados</span>
+            </a>
+            <a href="notificacoes.html" class="nav-item">
+                <span class="nav-icon">🔔</span>
+                <span>Notificações</span>
+                <span class="badge">3</span>
+            </a>
+        </nav>
+       <div class="sidebar-user">
+            <div class="user-avatar" id="sidebar-avatar">??</div>
+            <div class="user-info">
+                <span class="user-name" id="sidebar-nome">Usuário</span>
+                <span class="user-role" id="sidebar-role">Colaborador</span>
+            </div>
+            <a href="../../login.html" class="btn-logout" title="Sair">⏻</a>
+        </div>
+    </aside>
+
+    <!--CONTEÚDO PRINCIPAL -->
+    <main class="main">
+
+        <header class="page-header">
+            <div class="header-left">
+                <h1 class="page-title">Meus Chamados</h1>
+                <p class="page-subtitle">Acompanhe o status das suas solicitações</p>
+            </div>
+            <div class="header-right">
+                <a href="novo-chamado.html" class="btn-novo">
+                    <span>➕</span> Novo Chamado
+                </a>
+            </div>
+        </header>
+
+        <!-- CARDS DE RESUMO -->
+        <div class="summary-bar">
+            <div class="summary-card" data-filter="todos">
+                <span class="summary-number" id="total-todos">0</span>
+                <span class="summary-label">Total</span>
+            </div>
+            <div class="summary-card aberto" data-filter="aberto">
+                <span class="summary-number" id="total-aberto">0</span>
+                <span class="summary-label">Abertos</span>
+            </div>
+            <div class="summary-card em_atendimento" data-filter="em_atendimento">
+                <span class="summary-number" id="total-atentimento">0</span>
+                <span class="summary-label">Em Atendimento</span>
+            </div>
+            <div class="summary-card aguardando_usuario" data-filter="aguardando_usuario">
+                <span class="summary-number" id="total-aguardando">0</span>
+                <span class="summary-label">Aguardando Você</span>
+            </div>
+            <div class="summary-card resolvido" data-filter="resolvido">
+                <span class="summary-number" id="total-resolvido">0</span>
+                <span class="summary-label">Resolvidos</span>
+            </div>
+            <div class="summary-card fechado" data-filter="fechado">
+                <span class="summary-number" id="total-fechado">0</span>
+                <span class="summary-label">Fechados</span>
+            </div>
+        </div> 
+
+        <!-- BARRA DE FILTROS -->
+        <div class="filters-bar">
+            <div class="search-wrap">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="search-input" placeholder="Buscar por título, protocolo ou categoria..." />
+                <button class="search-clear" id="search-clear" hidden>✕</button>
+            </div>
+            <div class="filter-group">
+                <select id="filter-categoria">
+                    <option value="">Todas as categorias</option>
+                    <option value="Hardware">Hardware</option>
+                    <option value="Software">Software</option>
+                    <option value="Rede / Internet">Rede / Internet</option>
+                    <option value="Acesso / Senha">Acesso / Senha</option>
+                    <option value="Impressora">Impressora</option>
+                    <option value="E-mail">E-mail</option>
+                    <option value="Telefonia">Telefonia</option>
+                    <option value="Outros">Outros</option>
+                </select>
+                <select id="filter-ordem">
+                    <option value="recente">Mais recentes</option>
+                    <option value="antigo">Mais antigos</option>
+                    <option value="prioridade">Prioridade</option>
+                </select>
+            </div>
+        </div>
+        
+        <!-- LISTA DE CHAMADOS -->
+        <div class="chamados-container">
+            <div class="chamados-list" id="chamados-list">
+                <!-- Rederizado pelo JS -->
+            </div>
+            <div class="empty-state" id="empty-state" hidden>
+                <div class="empty-icon">📭</div>
+                <p class="empty-title">Nenhum chamado encontrado</p>
+                <p class="empty-sub">Tente ajustar os filtros ou abra um novo chamado.</p>
+                <a href="novo-chamado.html" class="btn-novo-empty">➕ Abrir Novo Chamado</a>
+            </div>
+        </div> 
+
+    </main>
+    
+    <!-- MODAL DETALHE DO CHAMADO -->
+    <div class="modal-overlay" id="modal-detalhe" hidden>
+        <div class="modal-detalhe">
+
+            <div class="modal-header">
+                <div class="modal-header-left">
+                    <span class="modal-protocolo" id="det-protocolo"></span>
+                    <span class="modal-status-badge" id="det-status-badge"></span>
+                </div>
+                <button class="modal-close" id="modal-close">✕</button>
+            </div>
+
+            <div class="modal-body">
+                <h2 class="modal-titulo" id="det-titulo"></h2>
+
+                <div class="det-meta-grid">
+                    <div class="det-meta-item">
+                        <span class="det-meta-label">Categoria</span>
+                        <span class="det-meta-value" id="det-categoria"></span>
+                    </div>
+                    <div class="det-meta-item">
+                        <span class="det-meta-label">Prioridade</span>
+                        <span class="det-meta-value" id="det-prioridade"></span>
+                    </div>
+                    <div class="det-meta-item">
+                        <span class="det-meta-label">Aberto em</span>
+                        <span class="det-meta-value" id="det-data"></span>
+                    </div>
+                    <div class="det-meta-item">
+                        <span class="det-meta-label">Técnico</span>
+                        <span class="det-meta-value" id="det-tecnico"></span>
+                    </div>
+                    <div class="det-meta-item">
+                        <span class="det-meta-label">IP da Máquina</span>
+                        <span class="det-meta-value" id="det-ip"></span>
+                    </div>
+                    <div class="det-meta-item">
+                        <span class="det-meta-label">Atualizado em</span>
+                        <span class="det-meta-value" id="det-update"></span>
+                    </div>
+                </div>
+
+                <div class="det-descricao-wrap">
+                    <span class="det-meta-label">Descrição</span>
+                    <p class="det-descricao" id="det-descricao"></p>
+                </div>
+
+                <!-- HISTÓRICO / TIMELINE-->
+                <div class="det-historico-wrap">
+                    <span class="det-meta-label">Histórico de Atendimento</span>
+                    <div class="timeline" id="det-timeline"></div>
+                </div>
+
+                <!-- RESPOSTA DO USUÁRIO (quando status = aguardando_usuario) -->
+                <div class="resposta-wrap" id="resposta-wrap" hidden>
+                    <span class="det-meta-label">⚠️ O técnico está aguardando sua resposta</span>
+                    <textarea id="resposta-texto" rows="3" placeholder="Descreva aqui sua resposta..."></textarea>
+                    <button class="btn-responder" id="btn-responder">📤 Enviar Resposta</button>
+                </div>
+
+                <!-- AVALIAÇÃO -->
+                <div class="avaliacao-wrap" id="avaliacao-wrap" hidden>
+                    <span class="det-meta-label">Avalie o Atendimento</span>
+                    <div class="stars" id="stars">
+                        <span class="star" data-value="1">★</span>
+                        <span class="star" data-value="2">★</span>
+                        <span class="star" data-value="3">★</span>
+                        <span class="star" data-value="4">★</span>
+                        <span class="star" data-value="5">★</span>
+                    </div>
+                    <textarea id="avaliacap-comentario" placeholder="COmentário opciona 1..." rows="3"></textarea>
+                    <button class="btn-avaliar" id="btn-avaliar">Enviar Avaliação</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="../../JS/api.js"></script>
+    <script src="../../JS/sidebar.js"></script>
+    <script src="../../JS/COLABORADOR/meus-chamados.js"></script>
+</body>
+</html>

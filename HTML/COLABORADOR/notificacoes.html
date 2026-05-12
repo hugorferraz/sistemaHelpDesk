@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notificações - Funada Help Desk</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../CSS/COLABORADOR/notificacoes.css" />
+</head>
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+            <img src="../../Images/logoFunada.png" alt="Funada" />
+        </div>
+        <nav class="sidebar-nav">
+            <a href="inicio.html" class="nav-item">
+                <span class="nav-icon">🏠</span>
+                <span>Início</span>
+            </a>
+            <a href="novo-chamado.html" class="nav-item">
+                <span class="nav-icon">➕</span>
+                <span>Novo Chamado</span>
+            </a>
+            <a href="meus-chamados.html" class="nav-item">
+                <span class="nav-icon">📋</span>
+                <span>Meus Chamados</span>
+            </a>
+            <a href="notificacoes.html" class="nav-item active">
+                <span class="nav-icon">🔔</span>
+                <span>Notificações</span>
+                <span class="badge" id="badge-notif">3</span>
+            </a>
+        </nav>
+        <div class="sidebar-user">
+            <div class="user-avatar" id="sidebar-avatar">??</div>
+            <div class="user-info">
+                <span class="user-name" id="sidebar-nome">Usuário</span>
+                <span class="user-role" id="sidebar-role">Colaborador</span>
+            </div>
+            <a href="../../login.html" class="btn-logout" title="Sair">⏻</a>
+        </div>
+    </aside>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="main">
+
+        <header class="page-header">
+            <div class="header-left">
+                <h1 class="page-title">Notificações</h1>
+                <p class="page-subtitle">Fique por dentro das novidades dos seus chamados</p>
+            </div>
+            <button class="btn-mark-all-read" id="btn-mark-all-read">Marcar todas como lidas</button>
+        </header>
+
+        <div class="notifications-list" id="notifications-list">
+            <!-- Populado pelo JS -->
+        </div>
+
+        <div class="empty-state" id="empty-state" hidden>
+            <div class="empty-icon">🔔</div>
+            <p class="empty-title">Nenhuma notificação</p>
+            <p class="empty-sub">Você está em dia! As atualizações aparecerão aqui.</p>
+        </div>
+
+    </main>
+
+    <script src="../../JS/api.js"></script>
+    <script src="../../JS/sidebar.js"></script>
+    <script src="../../JS/COLABORADOR/notificacoes.js"></script>
+</body>
+</html>
