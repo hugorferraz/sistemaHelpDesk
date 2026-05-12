@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuários - Funada Help Desk</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../CSS/ADMIN/usuario.css" />
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-logo"><img src="../../Images/logoFunada.png" /></div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item"><span class="nav-icon">📊</span><span>Dashboard</span></a>
+            <a href="chamados.html" class="nav-item"><span class="nav-icon">📋</span><span>Chamados</span></a>
+            <a href="usuario.html" class="nav-item active"><span class="nav-icon">👥</span><span>Usuários</span></a>
+            <a href="relatorios.html" class="nav-item"><span class="nav-icon">📄</span><span>Relatórios</span></a>
+        </nav>
+        <div class="sidebar-user">
+            <div class="user-avatar" id="sidebar-avatar">??</div>
+            <div class="user-info">
+                <span class="user-name" id="sidebar-nome">Usuário</span>
+                <span class="user-role" id="sidebar-role">Perfil</span>
+            </div>
+            <a href="../../login.html" class="btn-logout">⏻</a></div>
+    </aside>
+
+    <main class="main">
+        <div class="page-header">
+            <h1 class="page-title">Gerenciar Usuários</h1>
+            <button class="btn-novo" id="btn-novo-usuario">➕ Novo Usuário</button>
+        </div>
+
+        <!-- Filtros -->
+        <div class="filters-bar">
+            <input type="text" id="search-usuario" placeholder="Buscar por nome ou e-mail..." />
+            <select id="filter-perfil"><option value="">Todos os perfis</option><option value="1">Administrador</option><option value="2">Técnico</option><option value="3">Colaborador</option></select>
+            <select id="filter-ativo"><option value="">Todos</option><option value="true">Ativos</option><option value="false">Inativos</option></select>
+        </div>
+
+        <table class="usuario-table">
+            <thead>
+                <tr>
+                    <th>Nome</th><th>E-mail</th><th>Perfil</th><th>Setor</th><th>Ramal</th><th>Ativo</th><th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="usuario-body"></tbody>
+        </table>
+    </main>
+
+    <!-- Modal de cadastro/edição -->
+    <div class="modal-overlay" id="modal-usuario" hidden>
+        <div class="modal-box">
+            <h2 id="modal-title">Novo Usuário</h2>
+            <input type="hidden" id="edit-id" />
+            <label>Nome: <input type="text" id="edit-nome" /></label>
+            <label>E-mail: <input type="email" id="edit-email" /></label>
+            <label>Senha: <input type="password" id="edit-senha" placeholder="Mínimo 6 caracteres" /></label>
+            <label>Perfil: <select id="edit-perfil"><option value="1">Administrador</option><option value="2">Técnico</option><option value="3">Colaborador</option></select></label>
+            <label>Setor: <select id="edit-setor"><option value="1">TI</option><option value="2">RH</option><option value="3">Financeiro</option><option value="4">Marketing</option><option value="5">Vendas</option></select></label>
+            <label>Ramal: <input type="text" id="edit-ramal" /></label>
+            <div class="modal-actions">
+                <button class="btn-cancel" id="modal-cancel">Cancelar</button>
+                <button class="btn-submit" id="modal-salvar">Salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../JS/api.js"></script>
+    <script src="../../JS/sidebar.js"></script>
+    <script src="../../JS/ADMIN/usuario.js"></script>
+</body>
+</html>

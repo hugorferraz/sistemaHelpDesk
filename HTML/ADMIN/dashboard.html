@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Funada Help Desk</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../CSS/ADMIN/dashboard.css" />
+</head>
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+            <img src="../../Images/logoFunada.png" alt="Funada" />
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item active">
+                <span class="nav-icon">📊</span>
+                <span>Dashboard</span>
+            </a>
+            <a href="chamados.html" class="nav-item">
+                <span class="nav-icon">📋</span>
+                <span>Chamados</span>
+            </a>
+            <a href="usuario.html" class="nav-item">
+                <span class="nav-icon">👥</span>
+                <span>Usuários</span>
+            </a>
+            <a href="relatorios.html" class="nav-item">
+                <span class="nav-icon">📄</span>
+                <span>Relatórios</span>
+            </a>
+        </nav>
+        <div class="sidebar-user">
+            <div class="user-avatar" id="sidebar-avatar">??</div>
+            <div class="user-info">
+                <span class="user-name" id="sidebar-nome">Usuário</span>
+                <span class="user-role" id="sidebar-role">Perfil</span>
+            </div>
+            <a href="../../login.html" class="btn-logout" title="Sair">⏻</a>
+        </div>
+    </aside>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="main">
+
+        <!-- Saudação -->
+        <header class="welcome-section">
+            <div>
+                <h1 class="welcome-title" id="welcome-message">👋 Carregando...</h1>
+                <p class="welcome-subtitle">Bem-vindo ao painel de controle</p>
+            </div>
+            <span class="current-date" id="current-date"></span>
+        </header>
+
+        <!-- CARDS DE RESUMO -->
+        <section class="summary-grid" id="summary-grid">
+            <!-- Renderizado pelo JS -->
+        </section>
+
+        <!-- GRÁFICOS -->
+        <div class="charts-grid">
+            <!-- Gráfico de barras: Chamados por Status -->
+            <div class="chart-card">
+                <h2 class="chart-title">Chamados por Status</h2>
+                <div class="bar-chart" id="bar-chart-status"></div>
+            </div>
+            <!-- Gráfico de pizza simulada: Chamados por Categoria -->
+            <div class="chart-card">
+                <h2 class="chart-title">Chamados por Categoria</h2>
+                <div class="donut-chart" id="donut-chart-categoria"></div>
+            </div>
+        </div>
+
+        <!-- ÚLTIMOS CHAMADOS CRÍTICOS -->
+        <section class="urgent-section">
+            <h2 class="section-title">⚠️ Chamados Críticos / Urgentes</h2>
+            <div class="urgent-list" id="urgent-list"></div>    
+        </section>
+
+        <!-- DESEMPENHO DE TÉCNICOS -->
+        <section class="tech-performance">
+            <h2 class="section-title">🏆 Desempenho dos Técnicos</h2>
+            <table class="performance-table">
+                <thead>
+                    <tr>
+                        <th>Técnico</th>
+                        <th>Em Aberto</th>
+                        <th>Em Atend.</th>
+                        <th>Resolvidos</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody id="tech-performance-body"></tbody>
+            </table>
+        </section>
+
+    </main>
+
+    <script src="../../JS/api.js"></script>
+    <script src="../../JS/sidebar.js"></script>
+    <script src="../../JS/ADMIN/dashboard.js"></script>
+</body>
+</html>

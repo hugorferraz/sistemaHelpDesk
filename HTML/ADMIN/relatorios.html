@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatórios - Funada Help Desk</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../CSS/ADMIN/relatorios.css" />
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-logo"><img src="../../Images/logoFunada.png" /></div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item"><span class="nav-icon">📊</span><span>Dashboard</span></a>
+            <a href="chamados.html" class="nav-item"><span class="nav-icon">📋</span><span>Chamados</span></a>
+            <a href="usuario.html" class="nav-item"><span class="nav-icon">👥</span><span>Usuários</span></a>
+            <a href="relatorio.html" class="nav-item active"><span class="nav-icon">📄</span><span>Relatórios</span></a>
+        </nav>
+        <div class="sidebar-user">
+            <div class="user-avatar" id="sidebar-avatar">??</div>
+            <div class="user-info">
+                <span class="user-name" id="sidebar-nome">Usuário</span>
+                <span class="user-role" id="sidebar-role">Perfil</span>
+            </div>
+            <a href="../../login.html" class="btn-logout">⏻</a></div>
+    </aside>
+
+    <main class="main">
+        <h1 class="page-title">Relatórios</h1>
+
+        <!-- Filtros -->
+        <section class="filter-section">
+            <div class="filter-row">
+                <label>Período: <input type="date" id="data-inicio" /> até <input type="date" id="data-fim" /></label>
+                <select id="rel-status">
+                    <option value="">Todos os Status</option>
+                    <option value="aberto">Aberto</option>
+                    <option value="em_atendimento">Em Atendimento</option>
+                    <option value="aguardando_usuario">Aguardando Usuário</option>
+                    <option value="resolvido">Resolvido</option>
+                    <option value="fechado">Fechado</option>
+                    <option value="cancelado">Cancelado</option>
+                </select>
+                <select id="rel-tecnico"><option value="">Todos os Técnicos</option></select>
+                <select id="rel-categoria"><option value="">Todas as Categorias</option></select>
+            </div>
+            <button class="btn-gerar" id="btn-gerar">Gerar Relatório</button>
+            <button class="btn-export" id="btn-export">📥 Exportar CSV</button>
+        </section>
+
+        <!-- Resumo + Tabela -->
+        <section class="result-section">
+            <div class="resumo-cards" id="resumo-cards"></div>
+            <table class="relatorio-table" id="relatorio-table">
+                <thead>
+                    <tr>
+                        <th>ID</th><th>Título</th><th>Solicitante</th><th>Técnico</th><th>Categoria</th><th>Status</th><th>Abertura</th><th>SLA</th>
+                    </tr>
+                </thead>
+                <tbody id="relatorio-body"></tbody>
+            </table>
+            <p class="empty-message" id="empty-message" hidden>Nenhum registro encontrado.</p>
+        </section>
+    </main>
+
+    <script src="../../JS/api.js"></script>
+    <script src="../../JS/sidebar.js"></script>
+    <script src="../../JS/ADMIN/relatorio.js"></script>
+</body>
+</html>

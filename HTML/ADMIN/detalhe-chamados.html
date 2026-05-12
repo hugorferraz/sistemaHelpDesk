@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhe do Chamado - Funada Help Desk</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../CSS/ADMIN/detalhe-chamados.css" />
+</head>
+<body>
+
+    <!-- SIDEBAR (mesma) -->
+    <aside class="sidebar">
+        <div class="sidebar-logo"><img src="../../Images/logoFunada.png" /></div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item"><span class="nav-icon">📊</span><span>Dashboard</span></a>
+            <a href="chamados.html" class="nav-item active"><span class="nav-icon">📋</span><span>Chamados</span></a>
+            <a href="usuario.html" class="nav-item"><span class="nav-icon">👥</span><span>Usuários</span></a>
+            <a href="relatorios.html" class="nav-item"><span class="nav-icon">📄</span><span>Relatórios</span></a>
+        </nav>
+        <div class="sidebar-user">
+            <div class="user-avatar" id="sidebar-avatar">??</div>
+            <div class="user-info">
+                <span class="user-name" id="sidebar-nome">Usuário</span>
+                <span class="user-role" id="sidebar-role">Perfil</span>
+            </div>
+            <a href="../../login.html" class="btn-logout">⏻</a></div>
+    </aside>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="main">
+        <a href="chamados.html" class="back-link">← Voltar para Chamados</a>
+        <div id="detalhe-container">
+            <!-- Renderizado pelo JS -->
+        </div>
+    </main>
+
+    <!-- Modal de ação (comentário, nota, etc.) -->
+    <div class="modal-overlay" id="modal-acao" hidden>
+        <div class="modal-box">
+            <h3 id="modal-titulo">Adicionar Comentário</h3>
+            <textarea id="modal-texto" rows="4" placeholder="Digite sua mensagem..."></textarea>
+            <div class="modal-actions">
+                <button class="btn-cancel" id="modal-cancel">Cancelar</button>
+                <button class="btn-submit" id="modal-submit">Enviar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../JS/api.js"></script>
+    <script src="../../JS/sidebar.js"></script>
+    <script src="../../JS/ADMIN/detalhe-chamados.js"></script>
+</body>
+</html>

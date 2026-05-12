@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chamados - Funada Help Desk</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../CSS/ADMIN/chamados.css" />
+</head>
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+            <img src="../../Images/logoFunada.png" alt="Funada" />
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item">
+                <span class="nav-icon">📊</span>
+                <span>Dashboard</span>
+            </a>
+            <a href="chamados.html" class="nav-item active">
+                <span class="nav-icon">📋</span>
+                <span>Chamados</span>
+            </a>
+            <a href="usuario.html" class="nav-item">
+                <span class="nav-icon">👥</span>
+                <span>Usuários</span>
+            </a>
+            <a href="relatorios.html" class="nav-item">
+                <span class="nav-icon">📄</span>
+                <span>Relatórios</span>
+            </a>
+        </nav>
+        <div class="sidebar-user">
+            <div class="user-avatar" id="sidebar-avatar">??</div>
+            <div class="user-info">
+                <span class="user-name" id="sidebar-nome">Usuário</span>
+                <span class="user-role" id="sidebar-role">Perfil</span>
+            </div>
+            <a href="../../login.html" class="btn-logout" title="Sair">⏻</a>
+        </div>
+    </aside>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="main">
+
+        <header class="page-header">
+            <div class="header-left">
+                <h1 class="page-title">Todos os Chamados</h1>
+                <p class="page-subtitle">Gerencie todas as solicitações do sistema</p>
+            </div>
+            <a href="novo-chamado.html" class="btn-novo">➕ Novo Chamado</a>
+        </header>
+
+        <!-- CARDS DE RESUMO -->
+        <div class="summary-bar" id="summary-bar"></div>
+
+        <!-- FILTROS -->
+        <div class="filters-bar">
+            <div class="search-wrap">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="search-input" placeholder="Buscar por título, protocolo ou solicitante..." />
+            </div>
+            <div class="filter-group">
+                <select id="filter-status">
+                    <option value="">Todos os status</option>
+                    <option value="aberto">Aberto</option>
+                    <option value="em_atendimento">Em Atendimento</option>
+                    <option value="aguardando_usuario">Aguardando Usuário</option>
+                    <option value="resolvido">Resolvido</option>
+                    <option value="fechado">Fechado</option>
+                    <option value="cancelado">Cancelado</option>
+                </select>
+                <select id="filter-prioridade">
+                    <option value="">Todas as prioridades</option>
+                    <option value="baixa">Baixa</option>
+                    <option value="media">Média</option>
+                    <option value="alta">Alta</option>
+                    <option value="critica">Crítica</option>
+                </select>
+                <select id="filter-tecnico">
+                    <option value="">Todos os técnicos</option>
+                    <!-- preenchido via JS -->
+                </select>
+                <select id="filter-ordem">
+                    <option value="recente">Mais recentes</option>
+                    <option value="antigo">Mais antigos</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- LISTA DE CHAMADOS -->
+        <div class="chamados-container">
+            <div class="chamados-list" id="chamados-list"></div>
+            <div class="empty-state" id="empty-state" hidden>
+                <p>Nenhum chamado encontrado.</p>
+            </div>
+        </div>
+
+    </main>
+    <script src="../../JS/api.js"></script>
+    <script src="../../JS/sidebar.js"></script>
+    <script src="../../JS/ADMIN/chamados.js"></script>
+</body>
+</html>

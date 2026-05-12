@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Início - Funada Help Desk</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../CSS/COLABORADOR/inicio.css" />
+</head>
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+            <img src="../../Images/logoFunada.png" alt="Funada" />
+        </div>
+        <nav class="sidebar-nav">
+            <a href="inicio.html" class="nav-item active">
+                <span class="nav-icon">🏠</span>
+                <span>Início</span>
+            </a>
+            <a href="novo-chamado.html" class="nav-item">
+                <span class="nav-icon">➕</span>
+                <span>Novo Chamado</span>
+            </a>
+            <a href="meus-chamados.html" class="nav-item">
+                <span class="nav-icon">📋</span>
+                <span>Meus Chamados</span>
+            </a>
+            <a href="notificacoes.html" class="nav-item">
+                <span class="nav-icon">🔔</span>
+                <span>Notificações</span>
+                <span class="badge" id="badge-notif">3</span>
+            </a>
+        </nav>
+        <div class="sidebar-user">
+            <div class="user-avatar" id="sidebar-avatar">??</div>
+            <div class="user-info">
+                <span class="user-name" id="sidebar-nome">Usuário</span>
+                <span class="user-role" id="sidebar-role">Colaborador</span>
+            </div>
+            <a href="../../login.html" class="btn-logout" title="Sair">⏻</a>
+        </div>
+    </aside>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="main">
+
+        <!-- Saudação Dinâmica -->
+        <h1 class="welcome-title" id="welcome-message">👋 Carregando...</h1>
+
+        <!-- RESUMO -->
+        <section class="summary-bar" id="summary-bar">
+            <!-- Cards de resumo renderizados pelo JS -->
+        </section>
+
+        <!-- AÇÕES RÁPIDAS -->
+        <section class="quick-actions">
+            <a href="novo-chamado.html" class="action-card">
+                <span class="action-icon">➕</span>
+                <span class="action-text">Novo Chamado</span>
+            </a>
+            <a href="meus-chamados.html" class="action-card">
+                <span class="action-icon">📋</span>
+                <span class="action-text">Ver Chamados</span>
+            </a>
+        </section>
+
+        <!-- FEED: ÚLTIMOS CHAMADOS + ÚLTIMAS ATUALIZAÇÕES -->
+        <div class="feed-container">
+            <section class="feed-box">
+                <h2 class="feed-title">🕒 Últimos Chamados</h2>
+                <div class="chamados-feed-list" id="latest-tickets">
+                    <!-- Populado pelo JS -->
+                </div>
+            </section>
+            <section class="feed-box">
+                <h2 class="feed-title">🔔 Últimas Atualizações</h2>
+                <div class="timeline-feed" id="latest-updates">
+                    <!-- Populado pelo JS -->
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <script src="../../JS/api.js"></script>
+    <script src="../../JS/sidebar.js"></script>
+    <script src="../../JS/COLABORADOR/inicio.js"></script>
+</body>
+</html>

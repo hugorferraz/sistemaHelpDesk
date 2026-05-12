@@ -1,0 +1,15 @@
+/* Mesmo :root e sidebar */
+@import url('../../CSS/ADMIN/chamados.css'); /* ou copie as variáveis */
+
+/* Incluir variáveis e estilos básicos */
+.main { margin-left: 240px; padding: 1.5rem 2rem; }
+.filter-section { background: var(--white); border: 1.5px solid var(--gray-300); border-radius: var(--radius); padding: 1.25rem; display: flex; flex-wrap: wrap; gap: 1rem; align-items: flex-end; }
+.filter-row { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+.filter-section input, .filter-section select { height: 40px; border: 1.5px solid var(--gray-300); border-radius: 8px; font-family: var(--font-ui); font-size: 13px; padding: 0 10px; }
+.btn-gerar, .btn-export { background: var(--blue-800); color: var(--white); border: none; padding: 10px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; }
+.btn-export { background: var(--green); }
+.resumo-cards { display: flex; gap: 1rem; margin: 1rem 0; }
+.resumo-card { flex: 1; background: var(--white); border: 1.5px solid var(--gray-300); border-radius: 8px; padding: 1rem; text-align: center; }
+.relatorio-table { width: 100%; border-collapse: collapse; background: var(--white); border: 1.5px solid var(--gray-300); border-radius: 8px; overflow: hidden; }
+.relatorio-table th { background: var(--blue-50); padding: 10px; font-size: 12px; text-align: left; }
+.relatorio-table td { padding: 10px; border-bottom: 1px solid var(--gray-100); font-size: 13px; }

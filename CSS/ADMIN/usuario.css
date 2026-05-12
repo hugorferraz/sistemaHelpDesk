@@ -1,0 +1,23 @@
+/* Repetir variáveis e sidebar */
+@import url('../../CSS/ADMIN/chamados.css'); /* ou copie as variáveis */
+
+.main { margin-left: 240px; padding: 1.5rem 2rem; }
+.page-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+.page-title { font-size: 22px; font-weight: 700; color: var(--blue-800); }
+.btn-novo { background: var(--blue-800); color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; }
+.filters-bar { display: flex; gap: 1rem; margin-bottom: 1rem; }
+.filters-bar input, .filters-bar select { height: 40px; border: 1.5px solid var(--gray-300); border-radius: 8px; padding: 0 10px; font-family: var(--font-ui); }
+.usuario-table { width: 100%; border-collapse: collapse; background: var(--white); border: 1.5px solid var(--gray-300); border-radius: 8px; }
+.usuario-table th { background: var(--blue-50); padding: 10px; font-size: 12px; text-align: left; }
+.usuario-table td { padding: 10px; border-bottom: 1px solid var(--gray-100); font-size: 13px; }
+.btn-editar, .btn-toggle { background: none; border: none; cursor: pointer; font-size: 16px; margin-right: 5px; }
+
+/* Modal */
+.modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 200; }
+.modal-overlay[hidden] { display: none; }
+.modal-box { background: white; border-radius: 12px; padding: 1.5rem; width: 90%; max-width: 500px; display: flex; flex-direction: column; gap: 0.8rem; }
+.modal-box label { display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 500; }
+.modal-box input, .modal-box select { height: 36px; border: 1.5px solid var(--gray-300); border-radius: 6px; padding: 0 8px; font-family: var(--font-ui); }
+.modal-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 0.5rem; }
+.btn-cancel { background: var(--gray-100); border: 1px solid var(--gray-300); }
+.btn-submit { background: var(--blue-800); color: white; border: none; }
