@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/login.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="card">
+
+        <div class="logo-wrap">
+            <img src="Images/logoFunada.png" alt="Funada" />
+        </div>
+
+        <p class="title">Bem Vindo!</p>
+        <p class="subtitle">Faça seu login com o usuário e senha que utiliza para entrar em seu computador.</p>
+
+        <form id="login-form">
+            <div class="field">
+                <label for="usuario">USUÁRIO</label>
+                <input type="text" id="usuario" name="usuario" placeholder="Digite seu usuário" required autocomplete="username" />
+            </div>
+
+            <div class="field">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" name="senha" placeholder="••••••••••" required autocomplete="current-password" />
+            </div>
+
+            <button type="submit" class="btn">
+                Entrar
+            </button>
+        </form>
+
+        <div class="divider"></div>
+        <p class="footer">Funada Help Desk &middot; Sistema de Chamados Técnicos</p>
+    </div>
+
+    <script src="JS/api.js"></script>
+    <script src="JS/login.js"> </script>
+    
+</body>
+</html>
